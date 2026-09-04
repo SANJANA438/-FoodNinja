@@ -6,14 +6,16 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/tap_foods";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "YOUR_MYSQL_PASSWORD";
+    private static final String URL = System.getenv("DB_URL");
+    private static final String USERNAME = System.getenv("DB_USERNAME");
+    private static final String PASSWORD = System.getenv("DB_PASSWORD");
 
     static Connection connection;
 
     public static Connection getConnection() {
+
         try {
+
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             connection = DriverManager.getConnection(
@@ -22,11 +24,16 @@ public class DBConnection {
                 PASSWORD
             );
 
+            System.out.println("DATABASE CONNECTED SUCCESSFULLY!");
+
         } catch (ClassNotFoundException e) {
+
             e.printStackTrace();
 
         } catch (SQLException e) {
+
             e.printStackTrace();
+
         }
 
         return connection;
