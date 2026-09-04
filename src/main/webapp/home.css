@@ -1,0 +1,451 @@
+/* ===== GLOBAL DARK ORANGE THEME ===== */
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080a0d;
+    color: #f5f5f5;
+}
+
+/* Orange glow behind the whole page */
+body::before {
+    content: "";
+    position: fixed;
+    top: -200px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 82, 0, 0.12);
+    filter: blur(120px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    right: -180px;
+    bottom: -180px;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 82, 0, 0.10);
+    filter: blur(130px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    background: rgba(10, 12, 16, 0.96);
+    border-bottom: 1px solid rgba(255, 82, 0, 0.25);
+    box-shadow: 0 5px 30px rgba(255, 82, 0, 0.08);
+}
+
+
+/* ===== HERO ===== */
+
+.hero {
+    background:
+        radial-gradient(circle at 80% 50%,
+            rgba(255, 82, 0, 0.20),
+            transparent 35%),
+        linear-gradient(135deg, #0c0e12, #15100d, #090b0f);
+
+    box-shadow:
+        inset 0 0 80px rgba(255, 82, 0, 0.08),
+        0 15px 50px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Search box */
+
+.search-box {
+    background: #111419;
+    border: 1px solid rgba(255, 82, 0, 0.35);
+    box-shadow:
+        0 0 20px rgba(255, 82, 0, 0.08),
+        inset 0 0 15px rgba(255, 82, 0, 0.03);
+}
+
+.search-box:focus-within {
+    border-color: #ff5200;
+    box-shadow:
+        0 0 20px rgba(255, 82, 0, 0.30),
+        0 0 45px rgba(255, 82, 0, 0.10);
+}
+
+
+/* ===== CATEGORY CARDS ===== */
+
+.category-card {
+    background: linear-gradient(145deg, #15181d, #0d0f13);
+    border: 1px solid rgba(255, 82, 0, 0.20);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45),
+        0 0 20px rgba(255, 82, 0, 0.05);
+
+    transition: all 0.35s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(255, 82, 0, 0.70);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.65),
+        0 0 25px rgba(255, 82, 0, 0.22),
+        0 0 60px rgba(255, 82, 0, 0.08);
+}
+
+
+/* ===== FOOD SAFETY SECTION ===== */
+
+.hygiene-section {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 0%,
+            rgba(255, 82, 0, 0.12),
+            transparent 35%),
+        linear-gradient(145deg, #0c0f13, #111317);
+
+    border: 1px solid rgba(255, 82, 0, 0.25);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.65),
+        0 0 35px rgba(255, 82, 0, 0.08),
+        inset 0 0 50px rgba(255, 82, 0, 0.035);
+
+    border-radius: 24px;
+}
+
+
+/* Animated orange background glow */
+
+.hygiene-section::before {
+    content: "";
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    top: -200px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(255, 82, 0, 0.13);
+
+    filter: blur(100px);
+    border-radius: 50%;
+
+    animation: orangeGlow 5s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+
+@keyframes orangeGlow {
+    from {
+        opacity: 0.35;
+        transform: translateX(-50%) scale(0.85);
+    }
+
+    to {
+        opacity: 0.75;
+        transform: translateX(-50%) scale(1.15);
+    }
+}
+
+
+/* Safety title */
+
+.hygiene-section h2 {
+    color: #ffffff;
+    text-shadow:
+        0 0 10px rgba(255, 82, 0, 0.30);
+}
+
+.hygiene-section h2 span {
+    color: #ff620f;
+}
+
+
+/* ===== HYGIENE CARDS ===== */
+
+.hygiene-card {
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255, 82, 0, 0.20);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.55),
+        0 0 18px rgba(255, 82, 0, 0.05);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+
+    animation: cardFloat 5s ease-in-out infinite;
+}
+
+
+/* Different dark shades */
+
+.hygiene-card:nth-child(1) {
+    background: linear-gradient(145deg, #171b20, #0d1014);
+}
+
+.hygiene-card:nth-child(2) {
+    background: linear-gradient(145deg, #151d19, #0d1210);
+}
+
+.hygiene-card:nth-child(3) {
+    background: linear-gradient(145deg, #19181e, #0f1015);
+}
+
+.hygiene-card:nth-child(4) {
+    background: linear-gradient(145deg, #1d1915, #12100d);
+}
+
+
+/* Orange animated shine */
+
+.hygiene-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    right: -100px;
+
+    background: rgba(255, 82, 0, 0.16);
+
+    filter: blur(50px);
+
+    border-radius: 50%;
+
+    animation: cardGlow 4s ease-in-out infinite alternate;
+}
+
+
+@keyframes cardGlow {
+    from {
+        opacity: 0.25;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 0.70;
+        transform: scale(1.25);
+    }
+}
+
+
+/* Card hover */
+
+.hygiene-card:hover {
+    transform: translateY(-12px) scale(1.02);
+
+    border-color: rgba(255, 82, 0, 0.70);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.75),
+        0 0 25px rgba(255, 82, 0, 0.25),
+        0 0 60px rgba(255, 82, 0, 0.10);
+}
+
+
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* ===== HYGIENE ICON ===== */
+
+.hygiene-icon {
+    background: #111419;
+
+    border: 1px solid rgba(255, 82, 0, 0.35);
+
+    box-shadow:
+        0 0 15px rgba(255, 82, 0, 0.12),
+        inset 0 0 15px rgba(255, 82, 0, 0.05);
+
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-6px) rotate(2deg);
+    }
+}
+
+
+/* Card title */
+
+.hygiene-card h3 {
+    color: #ffffff;
+}
+
+.hygiene-card p {
+    color: #aeb4bd;
+}
+
+
+/* ===== SAFETY PROMISE ===== */
+
+.safety-promise {
+    background:
+        radial-gradient(circle at 50% 0%,
+            rgba(255, 82, 0, 0.12),
+            transparent 40%),
+        #101318;
+
+    border: 1px solid rgba(255, 82, 0, 0.25);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.60),
+        0 0 30px rgba(255, 82, 0, 0.08);
+}
+
+
+/* Safety badge */
+
+.safety-badge {
+    background: linear-gradient(
+        145deg,
+        #ff620f,
+        #d94300
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 20px rgba(255, 82, 0, 0.35),
+        0 0 50px rgba(255, 82, 0, 0.12);
+
+    animation: badgePulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes badgePulse {
+    0%, 100% {
+        box-shadow:
+            0 0 20px rgba(255, 82, 0, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(255, 82, 0, 0.50),
+            0 0 60px rgba(255, 82, 0, 0.15);
+    }
+}
+
+
+/* ===== ORANGE BUTTON ===== */
+
+button,
+.btn {
+    background: linear-gradient(
+        135deg,
+        #ff620f,
+        #e44800
+    );
+
+    color: #ffffff;
+
+    border: none;
+
+    box-shadow:
+        0 8px 20px rgba(255, 82, 0, 0.18);
+
+    transition: all 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(255, 82, 0, 0.35),
+        0 0 25px rgba(255, 82, 0, 0.15);
+}
+
+
+/* ===== FOOTER ===== */
+
+footer {
+    background: #080a0d;
+
+    border-top: 1px solid rgba(255, 82, 0, 0.20);
+
+    box-shadow:
+        0 -10px 40px rgba(255, 82, 0, 0.05);
+}
+
+
+/* ===== ORANGE TEXT ===== */
+
+.orange {
+    color: #ff620f;
+
+    text-shadow:
+        0 0 12px rgba(255, 82, 0, 0.20);
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+    .hygiene-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .hygiene-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hygiene-section {
+        padding: 35px 20px;
+    }
+}
+
+
+/* ===== REDUCE ANIMATION FOR ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

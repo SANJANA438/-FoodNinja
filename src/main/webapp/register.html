@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FoodNinja - Sign Up</title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
+        body {
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 35px 20px;
+
+            color: white;
+
+            overflow-x: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 5% 10%,
+                    rgba(255, 140, 0, 0.22),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 95% 10%,
+                    rgba(255, 94, 0, 0.18),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 5% 95%,
+                    rgba(255, 140, 0, 0.15),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 95% 95%,
+                    rgba(255, 94, 0, 0.18),
+                    transparent 30%
+                ),
+
+                #080808;
+
+        }
+
+
+        /* =====================================================
+           FLOATING FOOD ICONS
+        ===================================================== */
+
+        .food-icon {
+
+            position: fixed;
+
+            font-size: 34px;
+
+            opacity: 0.12;
+
+            user-select: none;
+
+            pointer-events: none;
+
+            animation: floating 6s ease-in-out infinite;
+
+        }
+
+
+        .food-one {
+
+            top: 8%;
+
+            left: 8%;
+
+        }
+
+
+        .food-two {
+
+            top: 15%;
+
+            right: 8%;
+
+            animation-delay: 1s;
+
+        }
+
+
+        .food-three {
+
+            bottom: 10%;
+
+            left: 10%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .food-four {
+
+            bottom: 12%;
+
+            right: 10%;
+
+            animation-delay: 3s;
+
+        }
+
+
+        @keyframes floating {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-20px)
+                    rotate(8deg);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SIGNUP CONTAINER
+        ===================================================== */
+
+        .signup-container {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 100%;
+
+            max-width: 520px;
+
+            padding: 42px 40px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(28, 28, 28, 0.96),
+                    rgba(15, 15, 15, 0.96)
+                );
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border-radius: 24px;
+
+            border: 1px solid #303030;
+
+            box-shadow:
+
+                0 25px 70px
+                rgba(0, 0, 0, 0.75),
+
+                inset 0 1px 0
+                rgba(255, 255, 255, 0.04);
+
+            transition: all 0.4s ease;
+
+            animation: cardAppear 0.8s ease;
+
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(35px)
+                    scale(0.96);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CONTAINER HOVER
+        ===================================================== */
+
+        .signup-container:hover {
+
+            border-color: #ff8c00;
+
+            box-shadow:
+
+                0 0 12px
+                rgba(255, 140, 0, 0.45),
+
+                0 0 35px
+                rgba(255, 100, 0, 0.20),
+
+                0 25px 70px
+                rgba(0, 0, 0, 0.85);
+
+            transform: translateY(-4px);
+
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 36px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .food {
+
+            color: #ffffff;
+
+        }
+
+
+        .ninja {
+
+            color: #ff8c00;
+
+            text-shadow:
+                0 0 15px
+                rgba(255, 140, 0, 0.5);
+
+        }
+
+
+        /* =====================================================
+           LOGO LINE
+        ===================================================== */
+
+        .logo-line {
+
+            width: 60px;
+
+            height: 4px;
+
+            margin: 12px auto 18px;
+
+            border-radius: 20px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #ff9d00,
+                    #ff5e00
+                );
+
+            box-shadow:
+
+                0 0 12px
+                rgba(255, 120, 0, 0.7);
+
+        }
+
+
+        /* =====================================================
+           SUBTITLE
+        ===================================================== */
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #999;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =====================================================
+           FORM GROUP
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        /* =====================================================
+           LABEL
+        ===================================================== */
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: #eeeeee;
+
+        }
+
+
+        /* =====================================================
+           INPUT WRAPPER
+        ===================================================== */
+
+        .input-wrapper {
+
+            position: relative;
+
+        }
+
+
+        /* =====================================================
+           INPUT ICON
+        ===================================================== */
+
+        .input-icon {
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 16px;
+
+            opacity: 0.7;
+
+            pointer-events: none;
+
+        }
+
+
+        /* =====================================================
+           INPUT / SELECT / TEXTAREA
+        ===================================================== */
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            background: #202020;
+
+            border: 1px solid #3b3b3b;
+
+            border-radius: 12px;
+
+            color: white;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        /* Inputs with icons */
+
+        .input-wrapper input {
+
+            padding-left: 45px;
+
+        }
+
+
+        /* =====================================================
+           INPUT HOVER
+        ===================================================== */
+
+        .form-group input:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+
+            border-color: #ff8c00;
+
+            box-shadow:
+
+                0 0 8px
+                rgba(255, 140, 0, 0.18);
+
+        }
+
+
+        /* =====================================================
+           INPUT FOCUS
+        ===================================================== */
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #ff8c00;
+
+            background: #1d1d1d;
+
+            box-shadow:
+
+                0 0 0 3px
+                rgba(255, 140, 0, 0.09),
+
+                0 0 15px
+                rgba(255, 140, 0, 0.20);
+
+        }
+
+
+        /* =====================================================
+           PLACEHOLDER
+        ===================================================== */
+
+        input::placeholder,
+        textarea::placeholder {
+
+            color: #666;
+
+        }
+
+
+        /* =====================================================
+           SELECT
+        ===================================================== */
+
+        select {
+
+            cursor: pointer;
+
+        }
+
+
+        select option {
+
+            background: #202020;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           ADDRESS
+        ===================================================== */
+
+        textarea {
+
+            resize: none;
+
+            height: 85px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           PASSWORD ROW
+        ===================================================== */
+
+        .row {
+
+            display: flex;
+
+            gap: 15px;
+
+        }
+
+
+        .row .form-group {
+
+            flex: 1;
+
+        }
+
+
+        /* =====================================================
+           REGISTER BUTTON
+        ===================================================== */
+
+        .register-btn {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 8px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #ff9d00,
+                    #ff5e00
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.3px;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+            box-shadow:
+
+                0 8px 22px
+                rgba(255, 100, 0, 0.22);
+
+        }
+
+
+        /* =====================================================
+           REGISTER BUTTON HOVER
+        ===================================================== */
+
+        .register-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+
+                0 0 15px
+                rgba(255, 140, 0, 0.55),
+
+                0 12px 28px
+                rgba(255, 100, 0, 0.30);
+
+        }
+
+
+        .register-btn:active {
+
+            transform: translateY(0);
+
+        }
+
+
+        /* =====================================================
+           LOGIN TEXT
+        ===================================================== */
+
+        .login-text {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            font-size: 14px;
+
+            color: #888;
+
+        }
+
+
+        .login-text a {
+
+            color: #ff8c00;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            margin-left: 4px;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        .login-text a:hover {
+
+            color: #ffb347;
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =====================================================
+           SECURITY TEXT
+        ===================================================== */
+
+        .secure-text {
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            color: #555;
+
+            font-size: 11px;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 20px 15px;
+
+            }
+
+
+            .signup-container {
+
+                padding: 32px 22px;
+
+                border-radius: 20px;
+
+            }
+
+
+            .logo {
+
+                font-size: 31px;
+
+            }
+
+
+            .row {
+
+                flex-direction: column;
+
+                gap: 0;
+
+            }
+
+
+            .food-icon {
+
+                font-size: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         FLOATING FOOD ICONS
+    ===================================================== -->
+
+    <div class="food-icon food-one">
+        🍕
+    </div>
+
+    <div class="food-icon food-two">
+        🍔
+    </div>
+
+    <div class="food-icon food-three">
+        🍜
+    </div>
+
+    <div class="food-icon food-four">
+        🍟
+    </div>
+
+
+    <!-- =====================================================
+         SIGN UP CONTAINER
+    ===================================================== -->
+
+    <div class="signup-container">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <span class="food">
+                Food
+            </span>
+
+            <span class="ninja">
+                Ninja
+            </span>
+
+        </div>
+
+
+        <!-- LOGO LINE -->
+
+        <div class="logo-line"></div>
+
+
+        <!-- SUBTITLE -->
+
+        <p class="subtitle">
+
+            Create your account and start
+            ordering delicious food 🍔
+
+        </p>
+
+
+        <!-- =================================================
+             REGISTRATION FORM
+        ================================================= -->
+
+        <form action="register" method="post">
+
+
+            <!-- FULL NAME -->
+
+            <div class="form-group">
+
+                <label for="name">
+
+                    Full Name
+
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        👤
+                    </span>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="userName"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+
+                    Email ID
+
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="form-group">
+
+                <label for="phone">
+
+                    Phone Number
+
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        📱
+                    </span>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD ROW -->
+
+            <div class="row">
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+
+                        Password
+
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Password"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+
+                        Confirm Password
+
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔐
+                        </span>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ROLE -->
+
+            <div class="form-group">
+
+                <label for="role">
+
+                    Select Role
+
+                </label>
+
+                <select
+                    id="role"
+                    name="role"
+                    required>
+
+                    <option value="">
+
+                        -- Select Role --
+
+                    </option>
+
+                    <option value="customer">
+
+                        Customer
+
+                    </option>
+
+                    <option value="restaurantAdmin">
+
+                        Restaurant Admin
+
+                    </option>
+
+                    <option value="Admin">
+
+                        Admin
+
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ADDRESS -->
+
+            <div class="form-group">
+
+                <label for="address">
+
+                    Address
+
+                </label>
+
+                <textarea
+                    id="address"
+                    name="address"
+                    placeholder="Enter your complete address"
+                    required></textarea>
+
+            </div>
+
+
+            <!-- CREATE ACCOUNT -->
+
+            <button
+                type="submit"
+                class="register-btn">
+
+                Create Account
+
+            </button>
+
+
+        </form>
+
+
+        <!-- =================================================
+             LOGIN
+        ================================================== -->
+
+        <div class="login-text">
+
+            Already have an account?
+
+            <a href="login.html">
+
+                Login
+
+            </a>
+
+        </div>
+
+
+        <!-- SECURITY -->
+
+        <div class="secure-text">
+
+            🔐 Your information is securely protected
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

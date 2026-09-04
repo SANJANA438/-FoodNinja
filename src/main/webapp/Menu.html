@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+
+        header {
+            background-color: white;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 70px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff5200;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 30px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #ff5200;
+        }
+
+        /* Page Heading */
+
+        .heading {
+            text-align: center;
+            padding: 40px 0 25px;
+        }
+
+        .heading h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .heading p {
+            color: #777;
+        }
+
+        /* Menu Container */
+
+        .menu-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+
+            padding-bottom: 50px;
+        }
+
+        /* Menu Card */
+
+        .menu-card {
+            background-color: white;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+        }
+
+        /* Image */
+
+        .menu-card img {
+            width: 100%;
+            height: 210px;
+
+            object-fit: cover;
+        }
+
+        /* Card Content */
+
+        .menu-info {
+            padding: 18px;
+        }
+
+        .menu-info h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            color: #777;
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            margin-bottom: 15px;
+        }
+
+        /* Price + Rating */
+
+        .details {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 19px;
+
+            font-weight: bold;
+        }
+
+        .rating {
+            background-color: #267e3e;
+
+            color: white;
+
+            padding: 5px 9px;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+        /* Add Button */
+
+        .add-btn {
+            width: 100%;
+
+            padding: 11px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #ff5200;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .add-btn:hover {
+            background-color: #e64600;
+        }
+
+        /* Footer */
+
+        footer {
+            background-color: #222;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        /* Responsive */
+
+        @media(max-width: 900px) {
+
+            .menu-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media(max-width: 600px) {
+
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 0 20px;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            Tap Food
+        </div>
+
+        <nav>
+
+            <a href="restaurant.html">
+                Restaurants
+            </a>
+
+            <a href="#">
+                Home
+            </a>
+
+            <a href="#">
+                Cart
+            </a>
+
+            <a href="#">
+                Login
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HEADING -->
+
+    <div class="heading">
+
+        <h1>Menu</h1>
+
+        <p>
+            Choose your favourite food
+        </p>
+
+    </div>
+
+
+    <!-- MENU CARDS -->
+
+    <div class="menu-container">
+
+
+        <!-- 1 -->
+
+        <div class="menu-card">
+
+            <img src="images/biryani.jpg"
+                 alt="Chicken Biryani">
+
+            <div class="menu-info">
+
+                <h2>
+                    Chicken Biryani
+                </h2>
+
+                <p class="description">
+                    Delicious chicken biryani prepared with
+                    basmati rice and aromatic spices.
+                </p>
+
+                <div class="details">
+
+                    <span class="price">
+                        ₹220
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.5
+                    </span>
+
+                </div>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="menu-card">
+
+            <img src="images/butter-chicken.jpg"
+                 alt="Butter Chicken">
+
+            <div class="menu-info">
+
+                <h2>
+                    Butter Chicken
+                </h2>
+
+                <p class="description">
+                    Creamy butter chicken cooked in a rich
+                    tomato gravy with special spices.
+                </p>
+
+                <div class="details">
+
+                    <span class="price">
+                        ₹250
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.6
+                    </span>
+
+                </div>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="menu-card">
+
+            <img src="images/paneer.jpg"
+                 alt="Paneer Butter Masala">
+
+            <div class="menu-info">
+
+                <h2>
+                    Paneer Butter Masala
+                </h2>
+
+                <p class="description">
+                    Soft paneer cooked in creamy tomato
+                    gravy with Indian spices.
+                </p>
+
+                <div class="details">
+
+                    <span class="price">
+                        ₹200
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.4
+                    </span>
+
+                </div>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="menu-card">
+
+            <img src="images/dosa.jpg"
+                 alt="Masala Dosa">
+
+            <div class="menu-info">
+
+                <h2>
+                    Masala Dosa
+                </h2>
+
+                <p class="description">
+                    Crispy South Indian dosa served with
+                    potato masala, chutney and sambar.
+                </p>
+
+                <div class="details">
+
+                    <span class="price">
+                        ₹90
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.7
+                    </span>
+
+                </div>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="menu-card">
+
+            <img src="images/pizza.jpg"
+                 alt="Veg Pizza">
+
+            <div class="menu-info">
+
+                <h2>
+                    Veg Pizza
+                </h2>
+
+                <p class="description">
+                    Fresh vegetables, mozzarella cheese and
+                    delicious pizza sauce on a crispy base.
+                </p>
+
+                <div class="details">
+
+                    <span class="price">
+                        ₹180
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.3
+                    </span>
+
+                </div>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="menu-card">
+
+            <img src="images/noodles.jpg"
+                 alt="Veg Noodles">
+
+            <div class="menu-info">
+
+                <h2>
+                    Veg Noodles
+                </h2>
+
+                <p class="description">
+                    Stir fried noodles with fresh vegetables
+                    and delicious Chinese sauces.
+                </p>
+
+                <div class="details">
+
+                    <span class="price">
+                        ₹140
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.2
+                    </span>
+
+                </div>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 7 -->
+
+        <div class="menu-card">
+
+            <img src="images/fried-rice.jpg"
+                 alt="Chicken Fried Rice">
+
+            <div class="menu-info">
+
+                <h2>
+                    Chicken Fried Rice
+                </h2>
+
+                <p class="description">
+                    Flavorful fried rice prepared with chicken,
+                    vegetables and special sauces.
+                </p>
+
+                <div class="details">
+
+                    <span class="price">
+                        ₹180
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.5
+                    </span>
+
+                </div>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 8 -->
+
+        <div class="menu-card">
+
+            <img src="images/burger.jpg"
+                 alt="Chicken Burger">
+
+            <div class="menu-info">
+
+                <h2>
+                    Chicken Burger
+                </h2>
+
+                <p class="description">
+                    Juicy chicken burger with cheese,
+                    vegetables and special sauce.
+                </p>
+
+                <div class="details">
+
+                    <span class="price">
+                        ₹160
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.4
+                    </span>
+
+                </div>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 9 -->
+
+        <div class="menu-card">
+
+            <img src="images/gulab-jamun.jpg"
+                 alt="Gulab Jamun">
+
+            <div class="menu-info">
+
+                <h2>
+                    Gulab Jamun
+                </h2>
+
+                <p class="description">
+                    Soft and delicious gulab jamun soaked
+                    in sweet aromatic sugar syrup.
+                </p>
+
+                <div class="details">
+
+                    <span class="price">
+                        ₹80
+                    </span>
+
+                    <span class="rating">
+                        ★ 4.8
+                    </span>
+
+                </div>
+
+                <button class="add-btn">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Tap Food. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

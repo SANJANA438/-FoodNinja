@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FoodNinja - Login</title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
+        body {
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(255, 140, 0, 0.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(255, 94, 0, 0.15),
+                    transparent 30%
+                ),
+                #080808;
+
+            color: white;
+
+            padding: 25px;
+
+        }
+
+
+        /* =====================================================
+           BACKGROUND GLOW
+        ===================================================== */
+
+        .glow {
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 115, 0, 0.12);
+
+            filter: blur(80px);
+
+            animation: moveGlow 8s ease-in-out infinite;
+
+        }
+
+
+        .glow-one {
+
+            top: -150px;
+
+            left: -120px;
+
+        }
+
+
+        .glow-two {
+
+            bottom: -150px;
+
+            right: -120px;
+
+            animation-delay: 2s;
+
+        }
+
+
+        @keyframes moveGlow {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(40px, 30px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+
+        /* =====================================================
+           FOOD EMOJIS
+        ===================================================== */
+
+        .food-icon {
+
+            position: absolute;
+
+            font-size: 32px;
+
+            opacity: 0.18;
+
+            animation: floatFood 6s ease-in-out infinite;
+
+            user-select: none;
+
+        }
+
+
+        .food-one {
+            top: 12%;
+            left: 12%;
+        }
+
+
+        .food-two {
+            top: 20%;
+            right: 13%;
+            animation-delay: 1s;
+        }
+
+
+        .food-three {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+
+        .food-four {
+            bottom: 12%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+
+        @keyframes floatFood {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-18px) rotate(8deg);
+            }
+
+        }
+
+
+        /* =====================================================
+           LOGIN CONTAINER
+        ===================================================== */
+
+        .login-container {
+
+            position: relative;
+
+            z-index: 10;
+
+            width: 100%;
+
+            max-width: 430px;
+
+            padding: 45px 38px;
+
+            background: rgba(24, 24, 24, 0.88);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border-radius: 24px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.75),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+            transition: all 0.4s ease;
+
+            animation: cardAppear 0.8s ease;
+
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px) scale(0.96);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0) scale(1);
+
+            }
+
+        }
+
+
+        .login-container:hover {
+
+            border-color: rgba(255, 140, 0, 0.5);
+
+            box-shadow:
+                0 0 15px rgba(255, 140, 0, 0.35),
+                0 0 45px rgba(255, 100, 0, 0.18),
+                0 25px 70px rgba(0, 0, 0, 0.8);
+
+            transform: translateY(-4px);
+
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 36px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .food {
+
+            color: #ffffff;
+
+        }
+
+
+        .ninja {
+
+            color: #ff8c00;
+
+            text-shadow:
+                0 0 10px rgba(255, 140, 0, 0.5);
+
+        }
+
+
+        /* =====================================================
+           LOGO LINE
+        ===================================================== */
+
+        .logo-line {
+
+            width: 55px;
+
+            height: 4px;
+
+            border-radius: 10px;
+
+            margin: 12px auto 18px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff8c00,
+                    #ff5e00
+                );
+
+            box-shadow:
+                0 0 12px rgba(255, 120, 0, 0.6);
+
+        }
+
+
+        /* =====================================================
+           SUBTITLE
+        ===================================================== */
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #999;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 32px;
+
+        }
+
+
+        /* =====================================================
+           FORM GROUP
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        /* =====================================================
+           LABEL
+        ===================================================== */
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 9px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: #eaeaea;
+
+        }
+
+
+        /* =====================================================
+           INPUT WRAPPER
+        ===================================================== */
+
+        .input-wrapper {
+
+            position: relative;
+
+        }
+
+
+        /* =====================================================
+           INPUT ICON
+        ===================================================== */
+
+        .input-icon {
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 17px;
+
+            opacity: 0.7;
+
+            pointer-events: none;
+
+        }
+
+
+        /* =====================================================
+           INPUT
+        ===================================================== */
+
+        .form-group input {
+
+            width: 100%;
+
+            padding: 14px 45px;
+
+            background: rgba(36, 36, 36, 0.9);
+
+            border: 1px solid #3d3d3d;
+
+            border-radius: 12px;
+
+            color: white;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        /* =====================================================
+           INPUT HOVER
+        ===================================================== */
+
+        .form-group input:hover {
+
+            border-color: #777;
+
+        }
+
+
+        /* =====================================================
+           INPUT FOCUS
+        ===================================================== */
+
+        .form-group input:focus {
+
+            border-color: #ff8c00;
+
+            background: #202020;
+
+            box-shadow:
+                0 0 0 3px rgba(255, 140, 0, 0.10),
+                0 0 15px rgba(255, 140, 0, 0.18);
+
+        }
+
+
+        /* =====================================================
+           PLACEHOLDER
+        ===================================================== */
+
+        input::placeholder {
+
+            color: #666;
+
+        }
+
+
+        /* =====================================================
+           PASSWORD SHOW BUTTON
+        ===================================================== */
+
+        .show-password {
+
+            position: absolute;
+
+            right: 14px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background: none;
+
+            border: none;
+
+            color: #888;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            transition: color 0.3s ease;
+
+        }
+
+
+        .show-password:hover {
+
+            color: #ff8c00;
+
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .login-btn {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 5px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff9d00,
+                    #ff6a00
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.3px;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+            box-shadow:
+                0 8px 20px rgba(255, 100, 0, 0.22);
+
+        }
+
+
+        /* =====================================================
+           BUTTON HOVER
+        ===================================================== */
+
+        .login-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 0 15px rgba(255, 140, 0, 0.55),
+                0 12px 25px rgba(255, 100, 0, 0.3);
+
+        }
+
+
+        /* =====================================================
+           BUTTON ACTIVE
+        ===================================================== */
+
+        .login-btn:active {
+
+            transform: translateY(0);
+
+        }
+
+
+        /* =====================================================
+           REGISTER
+        ===================================================== */
+
+        .register-text {
+
+            text-align: center;
+
+            margin-top: 27px;
+
+            font-size: 14px;
+
+            color: #888;
+
+        }
+
+
+        .register-text a {
+
+            color: #ff8c00;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            margin-left: 4px;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        .register-text a:hover {
+
+            color: #ffb347;
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =====================================================
+           SECURITY TEXT
+        ===================================================== */
+
+        .secure-text {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #555;
+
+            font-size: 11px;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 550px) {
+
+            body {
+
+                padding: 18px;
+
+            }
+
+
+            .login-container {
+
+                padding: 35px 24px;
+
+                border-radius: 20px;
+
+            }
+
+
+            .logo {
+
+                font-size: 31px;
+
+            }
+
+
+            .food-icon {
+
+                font-size: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND GLOW
+    ===================================================== -->
+
+    <div class="glow glow-one"></div>
+
+    <div class="glow glow-two"></div>
+
+
+    <!-- =====================================================
+         FLOATING FOOD
+    ===================================================== -->
+
+    <div class="food-icon food-one">
+        🍕
+    </div>
+
+    <div class="food-icon food-two">
+        🍔
+    </div>
+
+    <div class="food-icon food-three">
+        🍜
+    </div>
+
+    <div class="food-icon food-four">
+        🍟
+    </div>
+
+
+    <!-- =====================================================
+         LOGIN CONTAINER
+    ===================================================== -->
+
+    <div class="login-container">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <span class="food">
+                Food
+            </span>
+
+            <span class="ninja">
+                Ninja
+            </span>
+
+        </div>
+
+
+        <!-- LOGO LINE -->
+
+        <div class="logo-line"></div>
+
+
+        <!-- SUBTITLE -->
+
+        <p class="subtitle">
+
+            Welcome back! 👋<br>
+
+            Login to continue ordering your favorite food.
+
+        </p>
+
+
+        <!-- =================================================
+             LOGIN FORM
+        ================================================= -->
+
+        <form action="/foodif/login" method="post">
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email ID
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required>
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        onclick="togglePassword()"
+                        id="showBtn">
+
+                        👁
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                type="submit"
+                class="login-btn">
+
+                Login to FoodNinja
+
+            </button>
+
+
+        </form>
+
+
+        <!-- =================================================
+             REGISTER
+        ================================================== -->
+
+        <div class="register-text">
+
+            Don't have an account?
+
+            <a href="register.html">
+                Create Account
+            </a>
+
+        </div>
+
+
+        <!-- SECURITY -->
+
+        <div class="secure-text">
+
+            🔐 Your information is securely protected
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         PASSWORD SCRIPT
+    ===================================================== -->
+
+    <script>
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const button =
+                document.getElementById("showBtn");
+
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                button.innerHTML = "🙈";
+
+            } else {
+
+                password.type = "password";
+
+                button.innerHTML = "👁";
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

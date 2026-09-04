@@ -1,0 +1,2312 @@
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   BODY BACKGROUND - ORANGE LIGHTING
+===================================================== */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(255, 85, 20, 0.08);
+    filter: blur(70px);
+    pointer-events: none;
+    z-index: -1;
+    animation: floatingGlow 8s ease-in-out infinite alternate;
+}
+
+body::before {
+    top: 10%;
+    left: -100px;
+}
+
+body::after {
+    bottom: 5%;
+    right: -100px;
+    animation-delay: 2s;
+}
+
+
+/* =====================================================
+   FLOATING ORANGE GLOW
+===================================================== */
+
+@keyframes floatingGlow {
+
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+
+    to {
+        transform: translateY(-50px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    width: 100%;
+    height: 76px;
+    background: rgba(8, 8, 8, 0.95);
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+}
+
+.navbar-container {
+    width: 92%;
+    max-width: 1400px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    animation: logoAppear 0.8s ease forwards;
+}
+
+.logo-icon {
+    font-size: 27px;
+}
+
+.logo-text span {
+    color: #ff5a2f;
+
+    text-shadow:
+        0 0 10px rgba(255, 90, 47, 0.4),
+        0 0 25px rgba(255, 90, 47, 0.2);
+}
+
+@keyframes logoAppear {
+
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =====================================================
+   NAV LINKS
+===================================================== */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav-links a {
+    position: relative;
+    color: #a9a9a9;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-links a.active {
+    color: #ffffff;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    width: 100%;
+    height: 2px;
+    background: #ff5a2f;
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 10px rgba(255, 90, 47, 0.7);
+}
+
+
+/* =====================================================
+   NAV RIGHT
+===================================================== */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.search-nav {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #292929;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #cfcfcf;
+    transition: 0.3s ease;
+}
+
+.search-nav:hover {
+    border-color: #ff5a2f;
+    color: #ff5a2f;
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 18px rgba(255, 90, 47, 0.35);
+}
+
+
+/* =====================================================
+   PROFILE CONTAINER
+===================================================== */
+
+.profile-container {
+    position: relative;
+    z-index: 1100;
+}
+
+
+/* =====================================================
+   PROFILE BUTTON
+===================================================== */
+
+.profile-button {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111111;
+    border: 1px solid #292929;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+
+    outline: none;
+}
+
+.profile-button:hover {
+    border-color: #ff5a2f;
+    background: #171717;
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 20px rgba(255, 90, 47, 0.35);
+}
+
+.profile-button:focus {
+    border-color: #ff5a2f;
+}
+
+
+/* =====================================================
+   PROFILE IMAGE
+===================================================== */
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   PROFILE BOX
+===================================================== */
+
+.profile-box {
+    position: absolute;
+    top: 54px;
+    right: 0;
+    width: 300px;
+
+    background: #151515;
+
+    border: 1px solid #292929;
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.65),
+        0 5px 20px rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(-10px)
+        scale(0.96);
+
+    transform-origin: top right;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+
+    z-index: 2000;
+}
+
+
+/* =====================================================
+   PROFILE BOX OPEN
+===================================================== */
+
+.profile-box.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   PROFILE HEADER
+===================================================== */
+
+.profile-header {
+    width: 100%;
+    padding: 25px 20px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 90, 47, 0.16),
+            transparent 70%
+        );
+
+    border-bottom: 1px solid #292929;
+}
+
+
+/* =====================================================
+   LARGE PROFILE IMAGE
+===================================================== */
+
+.profile-large-image {
+    width: 78px;
+    height: 78px;
+
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+
+    border: 3px solid #292929;
+    background: #222;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.45);
+
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.profile-box:hover .profile-large-image {
+    border-color: #ff5a2f;
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 25px rgba(255, 90, 47, 0.35);
+}
+
+
+/* =====================================================
+   PROFILE INFO
+===================================================== */
+
+.profile-info {
+    padding: 20px;
+}
+
+.profile-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+
+/* =====================================================
+   PROFILE DETAILS
+===================================================== */
+
+.profile-info p {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    color: #bbbbbb;
+    font-size: 12px;
+    line-height: 1.5;
+
+    margin-bottom: 13px;
+    word-break: break-word;
+}
+
+.profile-info p:last-child {
+    margin-bottom: 0;
+}
+
+.profile-info strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   PROFILE ACTIONS
+===================================================== */
+
+.profile-actions {
+    padding: 0 20px 20px;
+}
+
+.profile-actions a {
+    display: flex;
+    width: 100%;
+    height: 42px;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6422,
+            #ff4d17
+        );
+
+    color: #ffffff;
+
+    border-radius: 9px;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.profile-actions a:hover {
+    background: #ff6d46;
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 90, 47, 0.35);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main-container {
+    width: 92%;
+    max-width: 1400px;
+    margin: auto;
+    padding-bottom: 80px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 420px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 55px 30px 45px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 58%;
+
+    animation:
+        heroContent 0.8s ease forwards;
+}
+
+@keyframes heroContent {
+
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #ff6b43;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
+    padding: 8px 12px;
+    border-radius: 20px;
+
+    background: rgba(255, 90, 47, 0.08);
+
+    border: 1px solid rgba(255, 90, 47, 0.18);
+
+    box-shadow:
+        0 0 20px rgba(255, 90, 47, 0.05);
+
+    animation:
+        orangePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes orangePulse {
+
+    from {
+        box-shadow:
+            0 0 8px rgba(255, 90, 47, 0.08);
+    }
+
+    to {
+        box-shadow:
+            0 0 22px rgba(255, 90, 47, 0.28);
+    }
+}
+
+.hero h1 {
+    max-width: 750px;
+
+    font-size: clamp(38px, 5vw, 66px);
+
+    line-height: 1.03;
+    letter-spacing: -3px;
+    font-weight: 800;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #ff5a2f;
+
+    text-shadow:
+        0 0 12px rgba(255, 90, 47, 0.35);
+
+    animation:
+        orangeTextGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes orangeTextGlow {
+
+    from {
+        text-shadow:
+            0 0 8px rgba(255, 90, 47, 0.25);
+    }
+
+    to {
+        text-shadow:
+            0 0 25px rgba(255, 90, 47, 0.75);
+    }
+}
+
+.hero p {
+    max-width: 620px;
+
+    color: #969696;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   SEARCH BOX
+===================================================== */
+
+.search-box {
+    width: min(600px, 100%);
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+
+    background: #151515;
+
+    border: 1px solid #303030;
+    border-radius: 13px;
+
+    padding: 0 17px;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.search-box:focus-within {
+    border-color: #ff5a2f;
+
+    box-shadow:
+        0 0 0 4px rgba(255, 90, 47, 0.08),
+        0 0 25px rgba(255, 90, 47, 0.12);
+}
+
+.search-icon {
+    font-size: 19px;
+    margin-right: 12px;
+    color: #777;
+}
+
+.search-box input {
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: #666;
+}
+
+#clearBtn {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: #777;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+#clearBtn:hover {
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   HERO FOOD
+===================================================== */
+
+.hero-image {
+    width: 37%;
+    height: 330px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation:
+        heroFood 1s ease forwards;
+}
+
+@keyframes heroFood {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(0.8)
+            rotate(5deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+.main-food {
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 110px;
+
+    background:
+        radial-gradient(
+            circle,
+            #292929,
+            #121212
+        );
+
+    border: 1px solid #303030;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 80px rgba(255, 90, 47, 0.08);
+
+    animation:
+        floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.floating-food {
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #171717;
+
+    border: 1px solid #303030;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.5);
+
+    animation:
+        miniFloat 3s ease-in-out infinite;
+}
+
+.food-one {
+    top: 35px;
+    right: 10px;
+}
+
+.food-two {
+    bottom: 40px;
+    left: 20px;
+    animation-delay: 0.8s;
+}
+
+.food-three {
+    top: 95px;
+    left: 5px;
+    animation-delay: 1.5s;
+}
+
+@keyframes miniFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =====================================================
+   FILTER SECTION
+===================================================== */
+
+.filter-section {
+    padding: 18px 0 25px;
+    border-top: 1px solid #1d1d1d;
+}
+
+.filter-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.filter-heading h2 {
+    font-size: 23px;
+    letter-spacing: -0.5px;
+}
+
+.filter-heading > span {
+    color: #777;
+    font-size: 12px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #121212;
+    color: #aaa;
+
+    border: 1px solid #292929;
+
+    padding: 10px 17px;
+
+    border-radius: 22px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.filter-btn:hover {
+    border-color: #ff5a2f;
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(255, 90, 47, 0.15);
+}
+
+.filter-btn.selected {
+    background: #ff5a2f;
+    color: #ffffff;
+
+    border-color: #ff5a2f;
+
+    box-shadow:
+        0 6px 20px rgba(255, 90, 47, 0.18);
+}
+
+
+/* =====================================================
+   RESTAURANT HEADER
+===================================================== */
+
+.restaurant-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin: 30px 0 25px;
+}
+
+.restaurant-header h2 {
+    font-size: 28px;
+    letter-spacing: -1px;
+    margin-bottom: 7px;
+}
+
+.restaurant-header p {
+    color: #777;
+    font-size: 13px;
+}
+
+.sort-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort-box label {
+    color: #777;
+    font-size: 12px;
+}
+
+.sort-box select {
+    background: #151515;
+    color: #ddd;
+
+    border: 1px solid #2c2c2c;
+
+    border-radius: 8px;
+
+    padding: 9px 12px;
+
+    outline: none;
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition: 0.3s ease;
+}
+
+.sort-box select:focus {
+    border-color: #ff5a2f;
+
+    box-shadow:
+        0 0 15px rgba(255, 90, 47, 0.15);
+}
+
+
+/* =====================================================
+   RESTAURANT GRID
+===================================================== */
+
+.restaurant-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   RESTAURANT CARD
+   SAME ANIMATION STYLE AS MENU CARD
+===================================================== */
+
+.restaurant-card {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #101010
+        );
+
+    border: 1px solid #292929;
+
+    border-radius: 17px;
+
+    opacity: 0;
+
+    transform:
+        translateY(50px)
+        scale(0.96);
+
+    animation:
+        restaurantCardAppear
+        0.7s
+        cubic-bezier(.2, .8, .2, 1)
+        forwards;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* =====================================================
+   RESTAURANT CARD APPEAR
+===================================================== */
+
+@keyframes restaurantCardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   CARD DELAYS
+===================================================== */
+
+.restaurant-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.restaurant-card:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.restaurant-card:nth-child(3) {
+    animation-delay: 0.19s;
+}
+
+.restaurant-card:nth-child(4) {
+    animation-delay: 0.26s;
+}
+
+.restaurant-card:nth-child(5) {
+    animation-delay: 0.33s;
+}
+
+.restaurant-card:nth-child(6) {
+    animation-delay: 0.40s;
+}
+
+.restaurant-card:nth-child(7) {
+    animation-delay: 0.47s;
+}
+
+.restaurant-card:nth-child(8) {
+    animation-delay: 0.54s;
+}
+
+.restaurant-card:nth-child(9) {
+    animation-delay: 0.61s;
+}
+
+.restaurant-card:nth-child(10) {
+    animation-delay: 0.68s;
+}
+
+.restaurant-card:nth-child(11) {
+    animation-delay: 0.75s;
+}
+
+.restaurant-card:nth-child(12) {
+    animation-delay: 0.82s;
+}
+
+
+/* =====================================================
+   CARD ORANGE LIGHTING
+===================================================== */
+
+.restaurant-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.07),
+            rgba(255, 100, 34, 0.12),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.8s;
+
+    pointer-events: none;
+
+    z-index: 20;
+}
+
+
+/* =====================================================
+   CARD SHINE ON HOVER
+===================================================== */
+
+.restaurant-card:hover::before {
+    left: 140%;
+}
+
+
+/* =====================================================
+   CARD ORANGE AMBIENT GLOW
+===================================================== */
+
+.restaurant-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 17px;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 100, 34, 0.13),
+            transparent 55%
+        );
+
+    transition:
+        opacity 0.4s ease;
+}
+
+.restaurant-card:hover::after {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.restaurant-card:hover {
+
+    transform:
+        translateY(-9px)
+        scale(1.015);
+
+    border-color: #ff6422;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.65),
+        0 0 25px rgba(255, 100, 34, 0.20),
+        0 0 55px rgba(255, 90, 30, 0.08);
+}
+
+
+/* =====================================================
+   RESTAURANT IMAGE
+===================================================== */
+
+.restaurant-image {
+    width: 100%;
+    height: 205px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #1c1c1c;
+}
+
+.restaurant-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s cubic-bezier(.2, .8, .2, 1),
+        filter 0.5s ease;
+}
+
+.restaurant-card:hover
+.restaurant-image img {
+
+    transform: scale(1.12);
+
+    filter:
+        brightness(1.08)
+        saturate(1.12);
+}
+
+
+/* =====================================================
+   IMAGE FALLBACK
+===================================================== */
+
+.image-fallback {
+    position: absolute;
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 65px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #292929,
+            #111111
+        );
+}
+
+
+/* =====================================================
+   IMAGE OVERLAY
+===================================================== */
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.65)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status {
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+
+    padding: 6px 10px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    backdrop-filter: blur(8px);
+
+    z-index: 5;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.status.open {
+    background: rgba(20, 110, 60, 0.85);
+    color: #d8ffe7;
+}
+
+.status.closed {
+    background: rgba(100, 30, 30, 0.9);
+    color: #ffdcdc;
+}
+
+.restaurant-card:hover .status {
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   OFFER
+===================================================== */
+
+.offer {
+    position: absolute;
+
+    bottom: 12px;
+    left: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6422,
+            #ff4d17
+        );
+
+    color: #ffffff;
+
+    padding: 7px 10px;
+
+    border-radius: 6px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(255, 90, 30, 0.25);
+
+    z-index: 5;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.restaurant-card:hover .offer {
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    box-shadow:
+        0 8px 20px rgba(255, 90, 30, 0.35);
+}
+
+
+/* =====================================================
+   FAVORITE
+===================================================== */
+
+.favorite {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.3s ease;
+
+    z-index: 10;
+}
+
+.favorite:hover {
+
+    background: #ff5a2f;
+
+    border-color: #ff5a2f;
+
+    transform:
+        scale(1.10)
+        rotate(4deg);
+
+    box-shadow:
+        0 0 20px rgba(255, 90, 47, 0.45);
+}
+
+.favorite.liked {
+
+    background: #ff5a2f;
+
+    border-color: #ff5a2f;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 18px rgba(255, 90, 47, 0.35);
+}
+
+
+/* =====================================================
+   RESTAURANT INFO
+===================================================== */
+
+.restaurant-info {
+    padding: 17px;
+}
+
+
+/* =====================================================
+   NAME
+===================================================== */
+
+.restaurant-name h3 {
+
+    font-size: 17px;
+    font-weight: 700;
+
+    color: #ffffff;
+
+    margin-bottom: 6px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.restaurant-card:hover
+.restaurant-name h3 {
+
+    color: #ff6422;
+
+    text-shadow:
+        0 0 12px rgba(255, 100, 34, 0.35);
+}
+
+.restaurant-name p {
+
+    color: #8b8b8b;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    min-height: 17px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.restaurant-details {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.rating {
+
+    background: #198754;
+
+    color: #ffffff;
+
+    padding: 5px 7px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.restaurant-card:hover .rating {
+    transform: scale(1.05);
+}
+
+.dot {
+    color: #555;
+}
+
+.delivery {
+
+    color: #aaa;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   ADDRESS
+===================================================== */
+
+.restaurant-address {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 6px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    margin-top: 12px;
+
+    min-height: 32px;
+}
+
+.restaurant-address span:first-child {
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   TAGS
+===================================================== */
+
+.tags {
+
+    display: flex;
+
+    gap: 6px;
+
+    margin-top: 13px;
+}
+
+.tags span {
+
+    color: #777;
+
+    background: #1b1b1b;
+
+    border: 1px solid #292929;
+
+    padding: 5px 8px;
+
+    border-radius: 5px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    transition:
+        all 0.3s ease;
+}
+
+.restaurant-card:hover .tags span {
+
+    border-color:
+        rgba(255, 90, 47, 0.25);
+
+    color: #aaa;
+}
+
+
+/* =====================================================
+   MENU BUTTON
+===================================================== */
+
+.menu-btn {
+
+    margin-top: 16px;
+
+    width: 100%;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 13px;
+
+    background: #1d1d1d;
+
+    border: 1px solid #303030;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.menu-btn:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6422,
+            #ff4d17
+        );
+
+    border-color: #ff6422;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 90, 30, 0.30);
+}
+
+.menu-btn .arrow {
+
+    font-size: 17px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.menu-btn:hover .arrow {
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =====================================================
+   EMPTY RESTAURANTS
+===================================================== */
+
+.empty-restaurants {
+
+    grid-column: 1 / -1;
+
+    min-height: 350px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border: 1px dashed #303030;
+
+    border-radius: 18px;
+
+    background: #101010;
+
+    animation:
+        restaurantCardAppear
+        0.7s
+        ease forwards;
+}
+
+.empty-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 18px;
+
+    animation:
+        floatingFood
+        2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes floatingFood {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.empty-restaurants h2 {
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+.empty-restaurants p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+.empty-restaurants button {
+
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6422,
+            #ff4d17
+        );
+
+    color: #ffffff;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 15px rgba(255, 90, 30, 0.2);
+
+    transition:
+        all 0.3s ease;
+}
+
+.empty-restaurants button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(255, 90, 30, 0.35);
+}
+
+
+/* =====================================================
+   SEARCH EMPTY
+===================================================== */
+
+.search-empty {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+.search-empty > div {
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+
+    animation:
+        floatingFood
+        2s
+        ease-in-out
+        infinite;
+}
+
+.search-empty h2 {
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+.search-empty p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+.search-empty button {
+
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6422,
+            #ff4d17
+        );
+
+    color: #ffffff;
+
+    padding: 11px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        all 0.3s ease;
+}
+
+.search-empty button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 90, 30, 0.35);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    background: #0d0d0d;
+
+    border-top: 1px solid #222;
+
+    padding-top: 40px;
+}
+
+.footer-container {
+
+    width: 92%;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 30px;
+}
+
+.footer-logo {
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+.footer-logo span {
+
+    color: #ff5a2f;
+
+    text-shadow:
+        0 0 10px rgba(255, 90, 47, 0.35);
+}
+
+.footer-logo p {
+
+    color: #666;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    margin-top: 7px;
+}
+
+.footer-links {
+
+    display: flex;
+
+    gap: 25px;
+}
+
+.footer-links a {
+
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    transition: 0.25s ease;
+}
+
+.footer-links a:hover {
+
+    color: #ff5a2f;
+
+    text-shadow:
+        0 0 10px rgba(255, 90, 47, 0.4);
+}
+
+.footer-bottom {
+
+    border-top: 1px solid #1e1e1e;
+
+    text-align: center;
+
+    padding: 18px;
+
+    color: #555;
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+
+    background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #303030;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #ff5a2f;
+
+    box-shadow:
+        0 0 10px rgba(255, 90, 47, 0.5);
+}
+
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
+::selection {
+
+    background: #ff5a2f;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    .restaurant-grid {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .hero h1 {
+
+        font-size: 52px;
+    }
+}
+
+
+/* =====================================================
+   TABLET SMALL
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .navbar {
+
+        height: auto;
+
+        padding: 15px 0;
+    }
+
+    .navbar-container {
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 25px;
+
+        padding-top: 8px;
+    }
+
+    .hero {
+
+        padding-top: 45px;
+
+        min-height: auto;
+    }
+
+    .hero-content {
+
+        width: 60%;
+    }
+
+    .hero-image {
+
+        width: 38%;
+    }
+
+    .main-food {
+
+        width: 190px;
+
+        height: 190px;
+
+        font-size: 85px;
+    }
+
+    .restaurant-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .navbar-container {
+
+        width: 94%;
+    }
+
+    .logo {
+
+        font-size: 21px;
+    }
+
+    .nav-right {
+
+        gap: 8px;
+    }
+
+    .search-nav {
+
+        display: none;
+    }
+
+    .nav-links {
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        padding-bottom: 4px;
+    }
+
+    .nav-links a {
+
+        white-space: nowrap;
+    }
+
+    .main-container {
+
+        width: 94%;
+    }
+
+    .hero {
+
+        display: block;
+
+        padding: 45px 5px 35px;
+    }
+
+    .hero-content {
+
+        width: 100%;
+    }
+
+    .hero h1 {
+
+        font-size: 40px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+
+        font-size: 14px;
+    }
+
+    .hero-image {
+
+        display: none;
+    }
+
+    .search-box {
+
+        height: 57px;
+    }
+
+    .filter-heading {
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+        flex-direction: column;
+    }
+
+    .restaurant-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .sort-box {
+
+        width: 100%;
+    }
+
+    .sort-box select {
+
+        flex: 1;
+    }
+
+    .restaurant-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .restaurant-image {
+
+        height: 215px;
+    }
+
+
+    /* =================================================
+       MOBILE PROFILE
+    ================================================= */
+
+    .profile-box {
+
+        position: fixed;
+
+        top: 70px;
+
+        right: 3%;
+
+        width: 290px;
+
+        max-width: calc(100vw - 20px);
+    }
+
+    .profile-header {
+
+        padding-top: 22px;
+    }
+
+    .profile-large-image {
+
+        width: 70px;
+
+        height: 70px;
+    }
+
+
+    /* =================================================
+       MOBILE FOOTER
+    ================================================= */
+
+    .footer-container {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+
+    .footer-links {
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL DEVICES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+
+        font-size: 34px;
+    }
+
+    .restaurant-image {
+
+        height: 190px;
+    }
+
+    .restaurant-info {
+
+        padding: 15px;
+    }
+
+    .filters {
+
+        gap: 7px;
+    }
+
+    .filter-btn {
+
+        padding: 9px 12px;
+    }
+
+
+    /* SMALL PROFILE */
+
+    .profile-box {
+
+        right: 10px;
+
+        width: calc(100vw - 20px);
+
+        max-width: 290px;
+    }
+}
+

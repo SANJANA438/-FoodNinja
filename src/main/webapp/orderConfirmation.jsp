@@ -1,0 +1,647 @@
+<%@ page language="java"
+    contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmed - FoodNinja</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(255, 107, 53, 0.08),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(255, 107, 53, 0.06),
+                    transparent 35%
+                ),
+                #0b0d12;
+
+            color: white;
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        .confirmation-container {
+
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+        }
+
+        .confirmation-card {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(31, 35, 47, 0.96),
+                    rgba(20, 23, 31, 0.98)
+                );
+
+            border: 1px solid #292d38;
+
+            border-radius: 20px;
+
+            padding: 45px 40px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.50);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .confirmation-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #ff6b35,
+                    transparent
+                );
+        }
+
+        .success-icon {
+
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                rgba(76, 175, 80, 0.12);
+
+            border: 2px solid rgba(76, 175, 80, 0.35);
+
+            font-size: 42px;
+
+            box-shadow:
+                0 0 30px rgba(76, 175, 80, 0.12);
+        }
+
+        .confirmation-title {
+
+            font-size: 36px;
+
+            font-weight: 800;
+
+            color: #ff6b35;
+
+            margin-bottom: 10px;
+
+            text-shadow:
+                0 0 20px rgba(255, 107, 53, 0.22);
+        }
+
+        .confirmation-message {
+
+            color: #9b9ea8;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+        .order-badge {
+
+            display: inline-block;
+
+            background:
+                rgba(76, 175, 80, 0.10);
+
+            color: #4caf50;
+
+            border: 1px solid
+                rgba(76, 175, 80, 0.25);
+
+            padding: 7px 14px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 25px;
+        }
+
+        .order-details {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #20242e,
+                    #191c24
+                );
+
+            border: 1px solid #353946;
+
+            border-radius: 14px;
+
+            padding: 22px;
+
+            margin-bottom: 25px;
+
+            text-align: left;
+        }
+
+        .details-title {
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            color: white;
+
+            padding-bottom: 14px;
+
+            margin-bottom: 10px;
+
+            border-bottom: 1px solid #30343f;
+        }
+
+        .detail-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 10px 0;
+
+            font-size: 14px;
+        }
+
+        .detail-label {
+
+            color: #858994;
+        }
+
+        .detail-value {
+
+            color: #f1f1f1;
+
+            font-weight: 600;
+        }
+
+        .status {
+
+            color: #4caf50;
+
+            font-weight: 700;
+        }
+
+        .total-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-top: 1px solid #424651;
+
+            margin-top: 10px;
+
+            padding-top: 18px;
+
+            font-size: 20px;
+
+            font-weight: 800;
+        }
+
+        .total-amount {
+
+            color: #ff6b35;
+
+            font-size: 24px;
+
+            text-shadow:
+                0 0 15px rgba(255, 107, 53, 0.18);
+        }
+
+        .delivery-message {
+
+            background:
+                rgba(255, 107, 53, 0.06);
+
+            border: 1px solid
+                rgba(255, 107, 53, 0.15);
+
+            border-radius: 12px;
+
+            padding: 15px;
+
+            margin-bottom: 25px;
+
+            color: #b5b7bf;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        .delivery-message strong {
+
+            color: #ff6b35;
+        }
+
+        .action-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .home-btn,
+        .orders-btn {
+
+            text-decoration: none;
+
+            padding: 14px 18px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            text-align: center;
+
+            transition: all 0.3s ease;
+        }
+
+        .home-btn {
+
+            flex: 1;
+
+            background: #303440;
+
+            color: white;
+        }
+
+        .home-btn:hover {
+
+            background: #3c404c;
+
+            transform: translateY(-2px);
+        }
+
+        .orders-btn {
+
+            flex: 1.5;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7b47,
+                    #ff5b24
+                );
+
+            color: white;
+
+            box-shadow:
+                0 8px 20px
+                rgba(255, 107, 53, 0.22);
+        }
+
+        .orders-btn:hover {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff8b5c,
+                    #ff6b35
+                );
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 28px
+                rgba(255, 107, 53, 0.32);
+        }
+
+        .secure-message {
+
+            text-align: center;
+
+            color: #666a75;
+
+            font-size: 12px;
+
+            margin-top: 20px;
+
+            padding-top: 15px;
+
+            border-top: 1px solid #292d36;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px;
+            }
+
+            .confirmation-card {
+                padding: 35px 22px;
+            }
+
+            .confirmation-title {
+                font-size: 30px;
+            }
+
+            .success-icon {
+                width: 75px;
+                height: 75px;
+                font-size: 34px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .home-btn,
+            .orders-btn {
+                width: 100%;
+            }
+
+            .detail-row {
+                font-size: 13px;
+            }
+
+            .total-row {
+                font-size: 18px;
+            }
+
+            .total-amount {
+                font-size: 21px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<%
+    Object orderID = session.getAttribute("orderID");
+    Object orderStatus = session.getAttribute("orderStatus");
+    Object paymentMode = session.getAttribute("paymentMode");
+    Object orderTotal = session.getAttribute("orderTotal");
+%>
+
+<div class="confirmation-container">
+
+    <div class="confirmation-card">
+
+        <!-- SUCCESS ICON -->
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        <div class="order-badge">
+
+            ✓ ORDER PLACED SUCCESSFULLY
+
+        </div>
+
+
+        <h1 class="confirmation-title">
+
+            Order Confirmed!
+
+        </h1>
+
+
+        <p class="confirmation-message">
+
+            Thank you for ordering with
+            <strong>FoodNinja</strong> 🍽️
+
+            <br>
+
+            Your delicious food is being prepared.
+
+        </p>
+
+
+        <!-- ORDER DETAILS -->
+
+        <div class="order-details">
+
+            <div class="details-title">
+
+                🧾 Order Details
+
+            </div>
+
+
+            <!-- ORDER ID -->
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+
+                    Order ID
+
+                </span>
+
+                <span class="detail-value">
+
+                    #<%= orderID %>
+
+                </span>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+
+                    Order Status
+
+                </span>
+
+                <span class="detail-value status">
+
+                    <%= orderStatus %>
+
+                </span>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+
+                    Payment Method
+
+                </span>
+
+                <span class="detail-value">
+
+                    <%= paymentMode %>
+
+                </span>
+
+            </div>
+
+
+            <!-- DELIVERY -->
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+
+                    Estimated Delivery
+
+                </span>
+
+                <span class="detail-value">
+
+                    30 - 45 mins
+
+                </span>
+
+            </div>
+
+
+            <!-- TOTAL -->
+
+            <div class="total-row">
+
+                <span>
+
+                    Total Amount
+
+                </span>
+
+                <span class="total-amount">
+
+                    ₹<%= String.format("%.2f", (Double) orderTotal) %>
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- DELIVERY MESSAGE -->
+
+        <div class="delivery-message">
+
+            🚴
+
+            <strong>
+                Your order is on its way!
+            </strong>
+
+            <br>
+
+            The restaurant has received your order.
+
+            You can track your order from the
+            <strong>My Orders</strong> section.
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="action-buttons">
+
+            <a
+                href="<%= request.getContextPath() %>/restaurant"
+                class="home-btn">
+
+                🏠 Back to Home
+
+            </a>
+
+
+          <a href="restaurant" class="orders-btn">
+    📦 Continue Ordering →
+</a>
+
+        </div>
+
+
+        <!-- SECURITY -->
+
+        <div class="secure-message">
+
+            🔒 Thank you for choosing FoodNinja •
+
+            Your order information is secure
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

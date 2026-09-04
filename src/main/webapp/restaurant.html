@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Foodyo - Register</title>
+
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            font-family: "Poppins", Arial, sans-serif;
+        }
+
+
+        /* =========================================
+           BODY
+        ========================================= */
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(120, 0, 0, 0.35),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(90, 0, 0, 0.25),
+                    transparent 35%
+                ),
+                #080808;
+
+            color: white;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+           MAIN SECTION
+        ========================================= */
+
+        .register-page {
+
+            width: 1050px;
+
+            min-height: 650px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 80px;
+
+            padding: 40px;
+        }
+
+
+        /* =========================================
+           LEFT WELCOME SECTION
+        ========================================= */
+
+        .welcome-section {
+
+            flex: 1;
+
+            max-width: 480px;
+
+            padding-left: 20px;
+
+            animation: fadeLeft 1s ease;
+        }
+
+
+        .welcome-section .small-title {
+
+            color: #ff3b3b;
+
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+
+            text-transform: uppercase;
+        }
+
+
+        .welcome-section h1 {
+
+            font-size: 58px;
+
+            line-height: 1.05;
+
+            font-weight: 700;
+
+            margin-bottom: 22px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #ff4b4b
+            );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .welcome-section h1 span {
+
+            color: #ff3030;
+
+            -webkit-text-fill-color: #ff3030;
+        }
+
+
+        .welcome-section .description {
+
+            color: #a5a5a5;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            max-width: 420px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================================
+           QUOTE
+        ========================================= */
+
+        .food-quote {
+
+            border-left: 2px solid #d51b1b;
+
+            padding-left: 18px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            font-style: italic;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           DECORATIVE LINE
+        ========================================= */
+
+        .decorative-line {
+
+            width: 100px;
+
+            height: 3px;
+
+            margin-top: 35px;
+
+            background: linear-gradient(
+                90deg,
+                #ff2b2b,
+                transparent
+            );
+        }
+
+
+        /* =========================================
+           REGISTER CARD
+        ========================================= */
+
+        .register-card {
+
+            width: 430px;
+
+            padding: 38px;
+
+            background: rgba(18, 18, 18, 0.95);
+
+            border: 1px solid rgba(255, 50, 50, 0.35);
+
+            border-radius: 18px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 0 25px rgba(255, 0, 0, 0.12),
+                0 0 60px rgba(255, 0, 0, 0.04);
+
+            animation: fadeRight 1s ease;
+
+            transition: 0.4s;
+        }
+
+
+        .register-card:hover {
+
+            border-color: rgba(255, 50, 50, 0.7);
+
+            box-shadow:
+                0 0 30px rgba(255, 0, 0, 0.2),
+                0 0 70px rgba(255, 0, 0, 0.08);
+        }
+
+
+        /* =========================================
+           LIGHTNING EFFECT
+        ========================================= */
+
+        .register-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -120%;
+
+            width: 100%;
+
+            height: 2px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #ff2222,
+                #ff7777,
+                transparent
+            );
+
+            transition: 0.7s;
+        }
+
+
+        .register-card:hover::before {
+
+            left: 120%;
+        }
+
+
+        /* =========================================
+           CARD HEADING
+        ========================================= */
+
+        .card-heading {
+
+            margin-bottom: 25px;
+        }
+
+
+        .card-heading h2 {
+
+            font-size: 26px;
+
+            margin-bottom: 6px;
+
+            color: #ffffff;
+        }
+
+
+        .card-heading p {
+
+            font-size: 13px;
+
+            color: #777;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-group {
+
+            margin-bottom: 17px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-size: 13px;
+
+            color: #d6d6d6;
+
+            margin-bottom: 7px;
+
+            font-weight: 500;
+        }
+
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 12px 13px;
+
+            background: #101010;
+
+            border: 1px solid #303030;
+
+            border-radius: 8px;
+
+            color: #ffffff;
+
+            outline: none;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+
+        /* =========================================
+           PLACEHOLDER
+        ========================================= */
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+
+            color: #555;
+        }
+
+
+        /* =========================================
+           INPUT HOVER
+        ========================================= */
+
+        .form-group input:hover,
+        .form-group textarea:hover,
+        .form-group select:hover {
+
+            border-color: #8b2020;
+        }
+
+
+        /* =========================================
+           INPUT FOCUS
+        ========================================= */
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+
+            border-color: #ff3030;
+
+            box-shadow:
+                0 0 8px rgba(255, 30, 30, 0.2);
+        }
+
+
+        /* =========================================
+           ADDRESS
+        ========================================= */
+
+        .form-group textarea {
+
+            height: 70px;
+
+            resize: none;
+        }
+
+
+        /* =========================================
+           SELECT
+        ========================================= */
+
+        .form-group select {
+
+            cursor: pointer;
+        }
+
+
+        .form-group select option {
+
+            background: #111;
+
+            color: white;
+        }
+
+
+        /* =========================================
+           PASSWORD BOX
+        ========================================= */
+
+        .password-box {
+
+            position: relative;
+
+            width: 100%;
+        }
+
+
+        .password-box input {
+
+            padding-right: 45px;
+        }
+
+
+        /* =========================================
+           EYE BUTTON
+        ========================================= */
+
+        .eye-btn {
+
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background: transparent;
+
+            border: none;
+
+            color: #777;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            padding: 3px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: 0.3s;
+        }
+
+
+        .eye-btn:hover {
+
+            color: #ff3b3b;
+
+            text-shadow:
+                0 0 8px rgba(255, 50, 50, 0.5);
+        }
+
+
+        /* =========================================
+           REGISTER BUTTON
+        ========================================= */
+
+        .register-btn {
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-top: 4px;
+
+            border-radius: 8px;
+
+            border: 1px solid rgba(255, 70, 70, 0.5);
+
+            background: linear-gradient(
+                135deg,
+                #d51b1b,
+                #690909
+            );
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .register-btn:hover {
+
+            transform: translateY(-2px);
+
+            background: linear-gradient(
+                135deg,
+                #f02b2b,
+                #8c0c0c
+            );
+
+            border-color: #ff5555;
+
+            box-shadow:
+                0 0 15px rgba(255, 40, 40, 0.4),
+                0 0 30px rgba(255, 0, 0, 0.12);
+        }
+
+
+        .register-btn:active {
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================
+           LOGIN
+        ========================================= */
+
+        .login-text {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            font-size: 12px;
+
+            color: #777;
+        }
+
+
+        .login-text a {
+
+            color: #ff3b3b;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .login-text a:hover {
+
+            color: #ff7777;
+
+            text-shadow:
+                0 0 8px rgba(255, 50, 50, 0.5);
+        }
+
+
+        /* =========================================
+           ANIMATIONS
+        ========================================= */
+
+        @keyframes fadeLeft {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateX(-40px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateX(0);
+            }
+        }
+
+
+        @keyframes fadeRight {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateX(40px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateX(0);
+            }
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .register-page {
+
+                width: 100%;
+
+                flex-direction: column;
+
+                gap: 35px;
+
+                padding: 40px 20px;
+            }
+
+
+            .welcome-section {
+
+                max-width: 600px;
+
+                width: 100%;
+
+                padding-left: 0;
+
+                text-align: center;
+            }
+
+
+            .welcome-section h1 {
+
+                font-size: 45px;
+            }
+
+
+            .welcome-section .description {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .food-quote {
+
+                text-align: left;
+
+                display: inline-block;
+            }
+
+
+            .decorative-line {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .register-card {
+
+                width: 100%;
+
+                max-width: 430px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .welcome-section h1 {
+
+                font-size: 38px;
+            }
+
+
+            .register-card {
+
+                padding: 28px 22px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         MAIN REGISTRATION PAGE
+    ========================================= -->
+
+    <div class="register-page">
+
+
+        <!-- =====================================
+             LEFT SIDE
+        ====================================== -->
+
+        <div class="welcome-section">
+
+
+            <div class="small-title">
+                Welcome to
+            </div>
+
+
+            <h1>
+                Foo<span>d</span>yo
+            </h1>
+
+
+            <p class="description">
+
+                Your delicious food journey starts here.
+                Create your account and discover amazing
+                restaurants, explore delicious meals, and
+                find something you'll love.
+
+            </p>
+
+
+            <div class="food-quote">
+
+                Good food brings people together.<br>
+                Discover. Order. Enjoy.
+
+            </div>
+
+
+            <div class="decorative-line"></div>
+
+
+        </div>
+
+
+        <!-- =====================================
+             RIGHT SIDE
+        ====================================== -->
+
+        <div class="register-card">
+
+
+            <div class="card-heading">
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <p>
+                    Join Foodyo and start exploring.
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 REGISTRATION FORM
+            ================================== -->
+
+            <form action="" method="post">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            required>
+
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            onclick="togglePassword()"
+                            aria-label="Show password">
+
+                            👁
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADDRESS -->
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        placeholder="Enter your address"
+                        required></textarea>
+
+                </div>
+
+
+                <!-- ROLE -->
+
+                <div class="form-group">
+
+                    <label for="role">
+                        Role
+                    </label>
+
+                    <select
+                        id="role"
+                        name="role"
+                        required>
+
+                        <option
+                            value=""
+                            disabled
+                            selected>
+
+                            Select your role
+
+                        </option>
+
+                        <option value="user">
+                            User
+                        </option>
+
+                        <option value="admin">
+                            Admin
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="register-btn">
+
+                    Create Account
+
+                </button>
+
+
+            </form>
+
+
+            <!-- LOGIN -->
+
+            <p class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================================
+         PASSWORD SHOW / HIDE
+    ========================================= -->
+
+    <script>
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const eye =
+                document.querySelector(".eye-btn");
+
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                eye.innerHTML = "🙈";
+
+                eye.setAttribute(
+                    "aria-label",
+                    "Hide password"
+                );
+
+            } else {
+
+                password.type = "password";
+
+                eye.innerHTML = "👁";
+
+                eye.setAttribute(
+                    "aria-label",
+                    "Show password"
+                );
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
