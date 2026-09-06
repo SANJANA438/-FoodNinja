@@ -1937,7 +1937,7 @@ else {
 
 
     <a class="checkout-btn"
-       href="restaurant">
+       href="restaurant.jsp">
 
         🍴 Browse Restaurants
 
