@@ -2007,7 +2007,7 @@
 
     <nav>
 
-        <a href="${pageContext.request.contextPath}/restaurant">
+        <a href="${pageContext.request.contextPath}/restaurant.jsp">
             Restaurants
         </a>
 
@@ -2015,7 +2015,7 @@
             🛒 Cart
         </a>
 
-        <a href="${pageContext.request.contextPath}/order">
+        <a href="${pageContext.request.contextPath}/order.jsp">
             Orders
         </a>
 
