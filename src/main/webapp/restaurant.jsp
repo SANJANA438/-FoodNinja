@@ -66,7 +66,7 @@ pageEncoding="UTF-8"%>
             🛒 Cart
         </a>
 
-        <a href="${pageContext.request.contextPath}/order">
+        <a href="${pageContext.request.contextPath}/order.jsp">
             Orders
         </a>
 

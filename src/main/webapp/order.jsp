@@ -932,13 +932,13 @@
                 Home
             </a>
 
-            <a href="restaurant">
+            <a href="restaurant.jsp">
                 Restaurants
             </a>
 
-            <a href="orderHistory" class="active">
-                My Orders
-            </a>
+         <a href="${pageContext.request.contextPath}/order" class="active">
+    My Orders
+</a>
 
         </div>
 
