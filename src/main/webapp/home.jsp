@@ -2007,7 +2007,7 @@
 
     <nav>
 
-        <a href="${pageContext.request.contextPath}/restaurant.jsp">
+        <a href="${pageContext.request.contextPath}/restaurant">
             Restaurants
         </a>
 
