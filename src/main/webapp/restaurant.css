@@ -489,18 +489,7 @@ body::after {
    HERO
 ===================================================== */
 
-.hero {
-    min-height: 420px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 55px 30px 45px;
-
-    position: relative;
-    overflow: hidden;
-}
 
 .hero-content {
     width: 58%;
@@ -691,7 +680,7 @@ body::after {
 
 .hero-image {
     width: 37%;
-    height: 330px;
+    height: 250px;
 
     position: relative;
 

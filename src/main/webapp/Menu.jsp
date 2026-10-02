@@ -1587,7 +1587,7 @@ User loggedInUser =
 
                     <p style="text-align:center;">
 
-                        Please login to view your profile.
+                     👤 Please login to view your profile 🔐.
 
                     </p>
 
