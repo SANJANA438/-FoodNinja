@@ -29,11 +29,14 @@ public class DBConnection {
         } catch (ClassNotFoundException e) {
 
             e.printStackTrace();
+            throw new RuntimeException("MySQL Driver not found", e);
 
         } catch (SQLException e) {
 
             e.printStackTrace();
-
+            throw new RuntimeException(
+                "Database connection failed: " + e.getMessage(), e
+            );
         }
 
         return connection;
